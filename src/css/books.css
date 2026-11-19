@@ -1,1 +1,250 @@
+.is-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
 
+.books {
+  padding-top: 32px;
+  background-color: #fbebe4;
+}
+
+.books-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.books-subtitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.books-count {
+  margin: 0;
+  font-size: 12px;
+}
+
+.books-dropdown-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 16px;
+  padding: 8px 12px;
+  border: 1px solid #c9b8ae;
+  border-radius: 4px;
+  background-color: #f0ddd4;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.books-categories {
+  display: none;
+  max-height: 296px;
+  margin: 0 0 16px;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+  border: 1px solid #c9b8ae;
+  border-radius: 4px;
+  background-color: #f0ddd4;
+}
+
+.books-categories.is-open {
+  display: block;
+}
+
+.books-category-btn {
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: transparent;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.books-category-btn.is-active {
+  background-color: #e3cfc5;
+}
+
+.books-categories::-webkit-scrollbar {
+  width: 5px;
+}
+
+.books-categories::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: #e15d05;
+}
+
+.books-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.books-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 7 / 10;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.books-content {
+  margin-top: 12px;
+}
+
+.books-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.books-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.books-price {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.books-author {
+  margin: 4px 0 16px;
+  font-size: 12px;
+}
+
+.books-btn {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.books-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.books-more-btn {
+  display: block;
+  width: 100%;
+  margin-top: 24px;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: #e15d05;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .books .container {
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    grid-template-areas:
+      "top dropdown"
+      ". categories"
+      "list list"
+      "more more";
+    column-gap: 16px;
+    align-items: center;
+    padding: 0 32px;
+  }
+
+  .books-top {
+    grid-area: top;
+    margin-bottom: 0;
+  }
+
+  .books-dropdown-btn {
+    grid-area: dropdown;
+    margin-bottom: 0;
+  }
+
+  .books-categories {
+    grid-area: categories;
+    max-height: 338px;
+    margin: 4px 0 0;
+  }
+
+  .books-list {
+    grid-area: list;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 24px;
+    margin-top: 24px;
+  }
+
+  .books-more-btn {
+    grid-area: more;
+    justify-self: center;
+    width: 258px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .books .container {
+    grid-template-columns: 240px 1fr;
+    grid-template-areas:
+      "top list"
+      "categories list"
+      ". more";
+    grid-template-rows: auto 1fr auto;
+    column-gap: 32px;
+    align-items: stretch;
+  }
+
+  .books-top {
+    margin-bottom: 16px;
+  }
+
+  .books-dropdown-btn {
+    display: none;
+  }
+
+  .books-categories {
+    display: block;
+    max-height: none;
+    margin: 0;
+    overflow: visible;
+    border: none;
+    background-color: transparent;
+  }
+
+  .books-category-btn {
+    padding: 8px 0;
+    font-size: 16px;
+  }
+
+  .books-category-btn:hover {
+    color: #e15d05;
+  }
+
+  .books-category-btn.is-active {
+    background-color: transparent;
+    color: #e15d05;
+  }
+
+  .books-list {
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 0;
+  }
+}
