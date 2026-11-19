@@ -1,0 +1,9 @@
+import './js/header.js';
+import './js/hero.js';
+import './js/books.js';
+import './js/feedbacks.js';
+import './js/events.js';
+import './js/article.js';
+import './js/location.js';
+import './js/footer.js';
+import './js/modal-window.js';
