@@ -2,10 +2,10 @@ const booksList = document.querySelector('.books-list');
 const categoriesList = document.querySelector('.books-categories');
 const booksCount = document.querySelector('.books-count');
 const showMoreBtn = document.querySelector('.books-more-btn');
+const dropdownBtn = document.querySelector('.books-dropdown-btn');
 
 let currentBooks = [];
 let visibleBooks = 0;
-let currentCategory = 'All categories';
 
 async function topBooks() {
   try {
@@ -41,7 +41,6 @@ async function fetchBooksByCategory(category) {
       `https://books-backend-v2.b.goit.study/books/category?category=${encodeURIComponent(category)}`
     );
     const data = await res.json();
-    console.log(data);
 
     currentBooks = data;
     visibleBooks = getBooksPerPage();
@@ -71,6 +70,12 @@ function renderCategories(categories) {
 
 categoriesList.addEventListener('click', onCategoryClick);
 showMoreBtn.addEventListener('click', onShowMoreClick);
+dropdownBtn.addEventListener('click', onDropdownClick);
+
+function onDropdownClick() {
+  dropdownBtn.classList.toggle('is-open');
+  categoriesList.classList.toggle('is-open');
+}
 
 function onCategoryClick(event) {
   const button = event.target.closest('.books-category-btn');
@@ -80,6 +85,9 @@ function onCategoryClick(event) {
   categoriesList.querySelector('.is-active')?.classList.remove('is-active');
 
   button.classList.add('is-active');
+
+  dropdownBtn.classList.remove('is-open');
+  categoriesList.classList.remove('is-open');
 
   const category = button.textContent.trim();
 
@@ -105,6 +113,12 @@ function getBooksPerPage() {
   return window.innerWidth >= 768 ? 24 : 10;
 }
 
+function formatTitle(title) {
+  return title
+    .toLowerCase()
+    .replace(/(^|\s)\S/g, letter => letter.toUpperCase());
+}
+
 function createBookMarkup(book) {
   return `
     <li class="books-item">
@@ -115,7 +129,7 @@ function createBookMarkup(book) {
       />
       <div class="books-content">
         <div class="books-row">
-          <h3 class="books-title">${book.title}</h3>
+          <h3 class="books-title">${formatTitle(book.title)}</h3>
           <p class="books-price">$${Math.round(book.price)}</p>
         </div>
         <p class="books-author">${book.author}</p>
@@ -129,6 +143,8 @@ function createBookMarkup(book) {
 
 function renderBooks(books) {
   booksList.innerHTML = books.map(createBookMarkup).join('');
+  booksCount.textContent = `Showing ${books.length} of ${currentBooks.length}`;
+  showMoreBtn.hidden = books.length >= currentBooks.length;
 }
 
 topBooks();

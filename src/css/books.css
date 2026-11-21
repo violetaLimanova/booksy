@@ -9,9 +9,8 @@
 
 .books {
   padding-top: 32px;
-  background-color: #fbebe4;
+  background-color: #fceee6;
 }
-
 
 .books-top {
   display: flex;
@@ -31,12 +30,16 @@
   font-size: 12px;
 }
 
+.books-filter {
+  position: relative;
+  margin-bottom: 16px;
+}
+
 .books-dropdown-btn {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-bottom: 16px;
   padding: 8px 12px;
   border: 1px solid #c9b8ae;
   border-radius: 4px;
@@ -45,10 +48,20 @@
   cursor: pointer;
 }
 
+.books-dropdown-btn.is-open
+.books-dropdown-icon {
+  transform: rotate(180deg);
+}
+
 .books-categories {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 10;
   display: none;
   max-height: 296px;
-  margin: 0 0 16px;
+  margin: 0;
   padding: 0;
   overflow-y: auto;
   list-style: none;
@@ -138,31 +151,53 @@
 }
 
 .books-btn {
-  width: 100%;
-  padding: 8px;
   margin-top: auto;
-  border: 1px solid #000;
+  width: 100%;
+  padding: 12px 24px;
+  border: 1px solid #0b0500;
   border-radius: 4px;
   background-color: transparent;
+  color: #0b0500;
   cursor: pointer;
+  transition: background-color 0.25s ease;
 }
 
-.books-btn:hover {
-  background-color: #000;
-  color: #fff;
+.books-btn:hover,
+.books-btn:focus-visible {
+  background-color: #ea8d50;
+}
+
+.books-btn:active {
+  background-color: #dad9d8;
+}
+
+.books-more-btn:hover,
+.books-more-btn:focus-visible {
+  border-color: #0b0500;
+  background-color: #0b0500;
+}
+
+.books-more-btn:active {
+  border-color: #b44a04;
+  background-color: #b44a04;
 }
 
 .books-more-btn {
   display: block;
   width: 100%;
   margin-top: 24px;
-  padding: 12px;
-  border: none;
+  padding: 12px 24px;
+  border: 1px solid #e15d05;
   border-radius: 4px;
   background-color: #e15d05;
   color: #fff;
   font-size: 14px;
   cursor: pointer;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.books-more-btn[hidden] {
+  display: none;
 }
 
 @media (min-width: 768px) {
@@ -170,8 +205,7 @@
     display: grid;
     grid-template-columns: 1fr 250px;
     grid-template-areas:
-      "top dropdown"
-      ". categories"
+      "top filter"
       "list list"
       "more more";
     column-gap: 16px;
@@ -184,15 +218,13 @@
     margin-bottom: 0;
   }
 
-  .books-dropdown-btn {
-    grid-area: dropdown;
+  .books-filter {
+    grid-area: filter;
     margin-bottom: 0;
   }
 
   .books-categories {
-    grid-area: categories;
     max-height: 338px;
-    margin: 4px 0 0;
   }
 
   .books-list {
@@ -215,7 +247,7 @@
     grid-template-columns: 240px 1fr;
     grid-template-areas:
       "top list"
-      "categories list"
+      "filter list"
       ". more";
     grid-template-rows: auto 1fr auto;
     column-gap: 32px;
@@ -231,9 +263,9 @@
   }
 
   .books-categories {
+    position: static;
     display: block;
     max-height: none;
-    margin: 0;
     overflow: visible;
     border: none;
     background-color: transparent;
@@ -245,6 +277,7 @@
   }
 
   .books-category-btn:hover {
+    background-color: transparent;
     color: #e15d05;
   }
 
