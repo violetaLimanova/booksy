@@ -12,6 +12,7 @@
   background-color: #fbebe4;
 }
 
+
 .books-top {
   display: flex;
   justify-content: space-between;
@@ -93,6 +94,11 @@
   list-style: none;
 }
 
+.books-item {
+  display: flex;
+  flex-direction: column;
+}
+
 .books-img {
   display: block;
   width: 100%;
@@ -103,6 +109,9 @@
 
 .books-content {
   margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .books-row {
@@ -131,6 +140,7 @@
 .books-btn {
   width: 100%;
   padding: 8px;
+  margin-top: auto;
   border: 1px solid #000;
   border-radius: 4px;
   background-color: transparent;
