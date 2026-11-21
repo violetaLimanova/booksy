@@ -1,3 +1,5 @@
+// import { openBookModal } from './modal-window.js';
+
 const booksList = document.querySelector('.books-list');
 const categoriesList = document.querySelector('.books-categories');
 const booksCount = document.querySelector('.books-count');
@@ -7,7 +9,7 @@ const dropdownBtn = document.querySelector('.books-dropdown-btn');
 let currentBooks = [];
 let visibleBooks = 0;
 
-async function topBooks() {
+async function fetchBooks() {
   try {
     const res = await fetch(
       'https://books-backend-v2.b.goit.study/books/top-books'
@@ -19,7 +21,7 @@ async function topBooks() {
 
     renderBooks(currentBooks.slice(0, visibleBooks));
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -31,7 +33,7 @@ async function fetchCategories() {
     const data = await res.json();
     renderCategories(data);
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -47,7 +49,7 @@ async function fetchBooksByCategory(category) {
 
     renderBooks(currentBooks.slice(0, visibleBooks));
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -71,10 +73,15 @@ function renderCategories(categories) {
 categoriesList.addEventListener('click', onCategoryClick);
 showMoreBtn.addEventListener('click', onShowMoreClick);
 dropdownBtn.addEventListener('click', onDropdownClick);
+booksList.addEventListener('click', onBookBtnClick);
 
 function onDropdownClick() {
   dropdownBtn.classList.toggle('is-open');
   categoriesList.classList.toggle('is-open');
+  dropdownBtn.setAttribute(
+    'aria-expanded',
+    categoriesList.classList.contains('is-open')
+  );
 }
 
 function onCategoryClick(event) {
@@ -88,11 +95,12 @@ function onCategoryClick(event) {
 
   dropdownBtn.classList.remove('is-open');
   categoriesList.classList.remove('is-open');
+  dropdownBtn.setAttribute('aria-expanded', 'false');
 
   const category = button.textContent.trim();
 
   if (category === 'All categories') {
-    topBooks();
+    fetchBooks();
     return;
   }
 
@@ -103,6 +111,17 @@ function onShowMoreClick() {
   visibleBooks += 4;
 
   renderBooks(currentBooks.slice(0, visibleBooks));
+}
+
+function onBookBtnClick(event) {
+  const button = event.target.closest('.books-btn');
+
+  if (!button) return;
+
+  // TODO: после готовности модального окна добавить
+  // import { openBookModal } from './modal-window.js'
+  // и заменить console.log на openBookModal(button.dataset.id)
+  console.log(button.dataset.id);
 }
 
 function getAllBooks(data) {
@@ -126,6 +145,7 @@ function createBookMarkup(book) {
         class="books-img"
         src="${book.book_image}"
         alt="${book.title}"
+        loading="lazy"
       />
       <div class="books-content">
         <div class="books-row">
@@ -147,5 +167,5 @@ function renderBooks(books) {
   showMoreBtn.hidden = books.length >= currentBooks.length;
 }
 
-topBooks();
+fetchBooks();
 fetchCategories();

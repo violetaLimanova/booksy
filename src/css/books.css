@@ -48,8 +48,7 @@
   cursor: pointer;
 }
 
-.books-dropdown-btn.is-open
-.books-dropdown-icon {
+.books-dropdown-btn.is-open .books-dropdown-icon {
   transform: rotate(180deg);
 }
 
@@ -193,7 +192,9 @@
   color: #fff;
   font-size: 14px;
   cursor: pointer;
-  transition: background-color 0.25s ease, border-color 0.25s ease;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .books-more-btn[hidden] {
@@ -205,9 +206,9 @@
     display: grid;
     grid-template-columns: 1fr 250px;
     grid-template-areas:
-      "top filter"
-      "list list"
-      "more more";
+      'top filter'
+      'list list'
+      'more more';
     column-gap: 16px;
     align-items: center;
     padding: 0 32px;
@@ -246,9 +247,9 @@
   .books .container {
     grid-template-columns: 240px 1fr;
     grid-template-areas:
-      "top list"
-      "filter list"
-      ". more";
+      'top list'
+      'filter list'
+      '. more';
     grid-template-rows: auto 1fr auto;
     column-gap: 32px;
     align-items: stretch;
