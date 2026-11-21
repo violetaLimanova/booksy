@@ -134,19 +134,19 @@
 
 .books-title {
   margin: 0;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
 }
 
 .books-price {
   margin: 0;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 700;
 }
 
 .books-author {
   margin: 4px 0 16px;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .books-btn {
@@ -156,6 +156,7 @@
   border: 1px solid #0b0500;
   border-radius: 4px;
   background-color: transparent;
+  font-size: 16px;
   color: #0b0500;
   cursor: pointer;
   transition: background-color 0.25s ease;
