@@ -1,4 +1,5 @@
-@import url(./container.css);
+@import url('./container.css');
+@import url('./main.css');
 /* Sections style */
 @import url('./header.css');
 @import url('./hero.css');
