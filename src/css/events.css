@@ -1,25 +1,4 @@
-@import url('./components/events-modal.css');
-
-.events,
-.events *,
-.events *::before,
-.events *::after {
-  box-sizing: border-box;
-}
-
-.events * {
-  margin: 0;
-  padding: 0;
-}
-
-.events img {
-  display: block;
-  max-width: 100%;
-}
-
-.events li {
-  list-style: none;
-}
+/* @import url('./components/events-modal.css'); */
 
 .events {
   width: 100%;
@@ -29,12 +8,6 @@
   padding: 64px 0;
   background-color: #fceee6;
   font-family: Rubik, sans-serif;
-}
-
-.events .container {
-  margin: 0 auto;
-  max-width: 1440px;
-  padding: 0 16px;
 }
 
 .events-heading {
