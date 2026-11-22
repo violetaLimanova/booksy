@@ -1,1 +1,33 @@
+<section class="books">
+  <div class="container">
+    <h2 class="is-hidden">Trending books</h2>
+    <div class="books-top">
+      <h3 class="books-subtitle">Books</h3>
+      <p class="books-count">Showing 24 of 100</p>
+    </div>
 
+    <div class="books-filter">
+      <button type="button" class="books-dropdown-btn" aria-expanded="false">
+        Categories
+        <svg
+          class="books-dropdown-icon"
+          width="20"
+          height="20"
+          aria-hidden="true"
+        >
+          <use href="/symbol-defs.svg#chevron-down"></use>
+        </svg>
+      </button>
+      <ul class="books-categories">
+        <li class="books-category">
+          <button type="button" class="books-category-btn is-active">
+            All categories
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <ul class="books-list"></ul>
+    <button type="button" class="books-more-btn">Show More</button>
+  </div>
+</section>
