@@ -246,6 +246,7 @@
 
 @media (min-width: 1440px) {
   .books .container {
+    padding: 0 64px;
     grid-template-columns: 240px 1fr;
     grid-template-areas:
       'top list'
