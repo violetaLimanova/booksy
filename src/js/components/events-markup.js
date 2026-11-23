@@ -1,10 +1,12 @@
+const base = import.meta.env.PROD ? '/booksy' : '';
+
 export const createEventCard = event => `
   <li class="swiper-slide events-item">
     <article class="event-card">
       <img
         class="event-card-image"
-        src="${event.image1x}"
-        srcset="${event.image1x} 1x, ${event.image2x} 2x"
+        src="${base}${event.image1x}"
+        srcset="${base}${event.image1x} 1x, ${base}${event.image2x} 2x"
         alt="${event.alt}"
         loading="lazy"
       />

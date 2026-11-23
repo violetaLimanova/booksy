@@ -1,0 +1,140 @@
+.site-header {
+  position: relative;
+}
+.header-container {
+  display: flex;
+  max-width: 1440px;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+.container {
+}
+.header-logo {
+  display: flex;
+  align-items: center;
+}
+.header-logo-icon {
+}
+.header-menu-icon {
+}
+
+.header-btn-menu,
+.menu-close-btn {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0;
+  background-color: #fceee6;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.mobile-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+.mobile-menu-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.container {
+}
+.mobile-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+
+.menu-close-btn {
+}
+.mobile-nav {
+  margin: auto;
+  text-align: center;
+}
+
+.mobile-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.mobile-item {
+  text-decoration: none;
+  color: #231e19;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+@media only screen and (max-width: 767px) {
+  .header-nav {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .header-btn-menu {
+    display: none;
+  }
+
+  .header-nav {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  .header-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 32px;
+  }
+
+  .header-item {
+    text-decoration: none;
+    color: #231e19;
+    font-weight: 400;
+    font-size: 16px;
+  }
+}

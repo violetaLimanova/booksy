@@ -3,11 +3,15 @@ const backdrop = document.querySelector('[data-modal]');
 const closeBtn = document.querySelector('[data-modal-close]');
 const eventText = document.querySelector('[data-modal-event]');
 const form = document.querySelector('[data-modal-form]');
-const openBtns = document.querySelectorAll('[data-modal-open]');
 
 
-openBtns.forEach(btn => {
-  btn.addEventListener('click', () => openModal(btn.dataset.event));
+document.addEventListener('click', event => {
+  const btn = event.target.closest('.event-card-register');
+  if (!btn) return;
+
+  const card = btn.closest('.event-card');
+  const title = card.querySelector('.event-card-title').textContent.trim();
+  openModal(title);
 });
 
 
