@@ -70,7 +70,9 @@
     gap: 32px;
     padding: 0 64px;
   }
-
+  .article-description {
+    padding-right: 48px;
+  }
   .article-content {
     flex: 1;
     min-width: 0;
@@ -78,7 +80,7 @@
   }
 
   .article-title {
-    font-size: 48px;
+    font-size: 40px;
   }
 
   .article-image {
