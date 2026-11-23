@@ -3,24 +3,24 @@
     "title": "Cozy Book Club — “The Midnight Library”",
     "date": "In-store | June 5, 6:30 PM",
     "description": "Join us for an evening of tea, thoughtful conversation, and shared reflections as we dive into Matt Haig’s bestseller.",
-    "image1x": "/events/library-1x.jpg",
-    "image2x": "/events/library-2x.jpg",
+    "image1x": "/library-1x.jpg",
+    "image2x": "/library-2x.jpg",
     "alt": "Cozy bookstore with a book club gathering"
   },
   {
     "title": "Book Cover Design Workshop",
     "date": "Online | June 12, 7:00 PM",
     "description": "A hands-on session for aspiring designers and curious readers. Learn what makes a cover stand out.",
-    "image1x": "/events/designWorkshop-1x.jpg",
-    "image2x": "/events/designWorkshop-2x.jpg",
+    "image1x": "/designWorkshop-1x.jpg",
+    "image2x": "/designWorkshop-2x.jpg",
     "alt": "People designing book covers in a studio"
   },
   {
     "title": "Children’s Story Hour",
     "date": "In-store | June 15, 11:00 AM",
     "description": "A magical morning of stories, games, and imagination for our youngest book lovers.",
-    "image1x": "/events/storyHour-1x.jpg",
-    "image2x": "/events/storyHour-2x.jpg",
+    "image1x": "/storyHour-1x.jpg",
+    "image2x": "/storyHour-2x.jpg",
     "alt": "Children listening to a story in a bookstore"
   }
 ]
