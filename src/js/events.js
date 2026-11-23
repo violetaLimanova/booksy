@@ -1,6 +1,5 @@
 import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
-
+import { Navigation, Pagination, Keyboard } from 'swiper/modules';
 import { createEventCard } from './components/events-markup.js';
 
 import events from './components/events-data.json';
@@ -18,10 +17,15 @@ function initEvents() {
   if (!slider) return;
 
   return new Swiper(slider, {
-    modules: [Navigation, Pagination],
+    modules: [Navigation, Pagination, Keyboard],
 
     slidesPerView: 1,
     spaceBetween: 24,
+
+    keyboard: {
+      enabled: true,
+      onlyInViewport: true,
+    },
 
     navigation: {
       nextEl: '.events-button-next',
