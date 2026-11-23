@@ -187,25 +187,20 @@
 
 /* Hover */
 
-.events-button-prev:hover:not(:disabled),
-.events-button-next:hover:not(:disabled) {
+/* Hover / Focus */
+
+.events-button-prev:hover,
+.events-button-next:hover,
+.events-button-prev:focus,
+.events-button-next:focus {
   background-color: #fceee6;
   color: #0b0500;
-}
-
-/* Focus */
-
-.events-button-prev:focus-visible,
-.events-button-next:focus-visible {
-  background-color: #fceee6;
-  color: #0b0500;
-  outline: none;
+  border: 1px solid rgba(11, 5, 0, 0.15);
 }
 
 /* Active */
 
-.events-button-prev:active:not(:disabled),
-.events-button-next:active:not(:disabled) {
+.events-button-prev:active .events-button-next:active {
   background-color: #5a2502;
   color: #ffffff;
 }
