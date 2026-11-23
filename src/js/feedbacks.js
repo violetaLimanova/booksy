@@ -1,9 +1,9 @@
 import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation, Pagination, Keyboard } from 'swiper/modules';
 import 'swiper/css';
 
 new Swiper('.feedbacks-swiper', {
-  modules: [Navigation, Pagination],
+  modules: [Navigation, Pagination, Keyboard],
 
   slidesPerView: 1,
   spaceBetween: 24,
@@ -16,6 +16,11 @@ new Swiper('.feedbacks-swiper', {
   pagination: {
     el: '.feedbacks-pagination',
     clickable: true,
+  },
+
+  keyboard: {
+    enabled: true,
+    onlyInViewport: true,
   },
 
   breakpoints: {
