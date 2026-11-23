@@ -1,4 +1,4 @@
-// import { openBookModal } from './modal-window.js';
+import { openBookModal } from './book-modal.js';
 
 const booksList = document.querySelector('.books-list');
 const categoriesList = document.querySelector('.books-categories');
@@ -119,9 +119,8 @@ function onBookBtnClick(event) {
   if (!button) return;
 
   // TODO: после готовности модального окна добавить
-  // import { openBookModal } from './modal-window.js'
   // и заменить console.log на openBookModal(button.dataset.id)
-  console.log(button.dataset.id);
+  openBookModal(button.dataset.id);
 }
 
 function getAllBooks(data) {

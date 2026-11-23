@@ -1,0 +1,112 @@
+<div class="book-modal-backdrop" data-book-modal>
+  <div
+    class="book-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="book-modal-title"
+  >
+    <button
+      class="book-modal-close"
+      type="button"
+      aria-label="Close"
+      data-book-close
+    >
+      <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M6 6l12 12M18 6L6 18"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+      </svg>
+    </button>
+
+    <img class="book-modal-img" src="" alt="" data-book-img />
+
+    <div class="book-modal-content">
+      <h2 class="book-modal-title" id="book-modal-title" data-book-title></h2>
+      <p class="book-modal-author" data-book-author></p>
+      <p class="book-modal-price" data-book-price></p>
+
+      <form class="book-modal-form" data-book-form>
+        <div class="book-modal-qty">
+          <button
+            class="book-modal-qty-btn"
+            type="button"
+            aria-label="Decrease quantity"
+            data-qty-minus
+          >
+            &minus;
+          </button>
+          <input
+            class="book-modal-qty-input"
+            type="number"
+            min="1"
+            value="1"
+            aria-label="Quantity"
+            data-qty-input
+          />
+          <button
+            class="book-modal-qty-btn"
+            type="button"
+            aria-label="Increase quantity"
+            data-qty-plus
+          >
+            +
+          </button>
+        </div>
+
+        <div class="book-modal-actions">
+          <button
+            class="book-modal-btn book-modal-btn-outline"
+            type="button"
+            data-add-to-cart
+          >
+            Add To Cart
+          </button>
+          <button class="book-modal-btn book-modal-btn-primary" type="submit">
+            Buy Now
+          </button>
+        </div>
+      </form>
+
+      <p class="book-modal-message" role="status" data-book-message></p>
+
+      <div class="book-modal-accordion" data-book-accordion>
+        <div class="ac">
+          <h3 class="ac-header">
+            <button class="ac-trigger" type="button">Details</button>
+          </h3>
+          <div class="ac-panel">
+            <p class="ac-text" data-book-details></p>
+          </div>
+        </div>
+
+        <div class="ac">
+          <h3 class="ac-header">
+            <button class="ac-trigger" type="button">Shipping</button>
+          </h3>
+          <div class="ac-panel">
+            <p class="ac-text">
+              We ship within 2&ndash;4 business days. Delivery time depends on
+              your address and is shown at checkout.
+            </p>
+          </div>
+        </div>
+
+        <div class="ac">
+          <h3 class="ac-header">
+            <button class="ac-trigger" type="button">Returns</button>
+          </h3>
+          <div class="ac-panel">
+            <p class="ac-text">
+              You can return a book within 14 days if it is in its original
+              condition. Contact us and we will help with the return.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

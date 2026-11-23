@@ -1,0 +1,315 @@
+:root {
+  --bm-modal-bg: #fceee6;
+  --bm-accent: #e05d00;
+  --bm-accent-dark: #b84a00;
+  --bm-text: #1a1a1a;
+  --bm-line: rgba(26, 26, 26, 0.2);
+}
+
+/* ---------- Фон ---------- */
+.book-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  padding: 32px 16px;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
+}
+
+.book-modal-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ---------- Окно (mobile) ---------- */
+.book-modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  margin: auto; /* центр по вертикали, а если окно высокое, фон прокручивается */
+  padding: 64px 16px;
+  color: var(--bm-text);
+  background: var(--bm-modal-bg);
+  border-radius: 16px;
+}
+
+.book-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  padding: 4px;
+  color: var(--bm-text);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.book-modal-close:hover,
+.book-modal-close:focus-visible {
+  color: var(--bm-accent);
+}
+
+.book-modal-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 309 / 466;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.book-modal-content {
+  min-width: 0;
+}
+
+.book-modal-title {
+  margin: 0 0 8px;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.book-modal-author {
+  margin: 0 0 12px;
+  font-size: 14px;
+}
+
+.book-modal-price {
+  margin: 0 0 16px;
+  font-size: 22px;
+}
+
+/* ---------- Количество ---------- */
+.book-modal-qty {
+  display: flex;
+  gap: 4px;
+  width: fit-content;
+  margin-bottom: 12px;
+}
+
+.book-modal-qty-btn {
+  width: 36px;
+  height: 36px;
+  font: inherit;
+  color: var(--bm-text);
+  background: transparent;
+  border: 1px solid var(--bm-text);
+  border-radius: 4px;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.book-modal-qty-btn:hover,
+.book-modal-qty-btn:focus-visible {
+  color: #fff;
+  background: var(--bm-text);
+}
+
+.book-modal-qty-input {
+  width: 42px;
+  height: 36px;
+  font: inherit;
+  color: var(--bm-text);
+  text-align: center;
+  background: rgba(26, 26, 26, 0.06);
+  border: none;
+  border-radius: 4px;
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.book-modal-qty-input::-webkit-outer-spin-button,
+.book-modal-qty-input::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+/* ---------- Кнопки ---------- */
+.book-modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.book-modal-btn {
+  height: 48px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.book-modal-btn-primary {
+  color: #fff;
+  background: var(--bm-accent);
+  border: 1px solid var(--bm-accent);
+}
+
+.book-modal-btn-primary:hover,
+.book-modal-btn-primary:focus-visible {
+  background: var(--bm-accent-dark);
+  border-color: var(--bm-accent-dark);
+}
+
+.book-modal-btn-outline {
+  color: var(--bm-text);
+  background: transparent;
+  border: 1px solid var(--bm-text);
+}
+
+.book-modal-btn-outline:hover,
+.book-modal-btn-outline:focus-visible {
+  color: #fff;
+  background: var(--bm-text);
+}
+
+/* ---------- Сообщение ---------- */
+.book-modal-message {
+  min-height: 1.5em;
+  margin: 8px 0 0;
+  font-size: 14px;
+  color: #2f7d4f;
+}
+
+/* ---------- Аккордеон (стили библиотеки не подключаем, всё здесь) ---------- */
+.book-modal-accordion {
+  margin-top: 24px;
+}
+
+.book-modal-accordion .ac {
+  border-top: 1px solid var(--bm-line);
+}
+
+.book-modal-accordion .ac:last-child {
+  border-bottom: 1px solid var(--bm-line);
+}
+
+.book-modal-accordion .ac-header {
+  margin: 0;
+  font-size: inherit;
+}
+
+.book-modal-accordion .ac-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 18px 0;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--bm-text);
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* стрелка: вниз, когда закрыто, вверх, когда открыто */
+.book-modal-accordion .ac-trigger::after {
+  content: '';
+  flex: none;
+  width: 8px;
+  height: 8px;
+  margin-right: 4px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+.book-modal-accordion .ac.is-active .ac-trigger::after {
+  transform: translateY(2px) rotate(-135deg);
+}
+
+/* эти два правила нужны библиотеке: она меняет height и добавляет is-active */
+.book-modal-accordion .ac-panel {
+  overflow: hidden;
+  transition-property: height, visibility;
+  transition-timing-function: ease;
+}
+
+.book-modal-accordion .ac:not(.is-active) .ac-panel {
+  height: 0;
+  visibility: hidden;
+}
+
+.book-modal-accordion .ac-text {
+  margin: 0;
+  padding-bottom: 24px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ---------- Tablet ---------- */
+@media (min-width: 768px) {
+  .book-modal-backdrop {
+    padding: 64px 32px;
+  }
+
+  .book-modal {
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 704px;
+    padding: 64px 32px;
+  }
+
+  .book-modal-close {
+    top: 18px;
+    right: 18px;
+  }
+
+  .book-modal-img {
+    flex: none;
+    width: 309px;
+  }
+
+  .book-modal-content {
+    flex: 1;
+  }
+}
+
+/* ---------- Desktop ---------- */
+@media (min-width: 1440px) {
+  .book-modal-backdrop {
+    padding: 64px 0;
+  }
+
+  .book-modal {
+    max-width: 1300px;
+    padding: 64px 104px;
+  }
+
+  .book-modal-actions {
+    flex-direction: row;
+  }
+
+  .book-modal-btn {
+    width: 310px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .book-modal-backdrop,
+  .book-modal-close,
+  .book-modal-accordion .ac-trigger::after {
+    transition: none;
+  }
+}
