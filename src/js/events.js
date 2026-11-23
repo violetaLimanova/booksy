@@ -2,7 +2,6 @@ import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
 
 import { createEventCard } from './components/events-markup.js';
-// import { eventsModal } from './components/events-modal.js';
 
 import events from './components/events-data.json';
 
@@ -48,4 +47,3 @@ function initEvents() {
 }
 
 initEvents();
-// eventsModal();
