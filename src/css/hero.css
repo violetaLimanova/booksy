@@ -4,7 +4,6 @@
 
 .hero-banner-list {
   margin-bottom: 24px;
-  /* max-width: 375px; */
 }
 .hero-banner-item {
   position: relative;
@@ -20,7 +19,6 @@
   font-weight: 600;
   font-size: 20px;
 
-  /* line-height: 28px; */
   line-height: 1.4;
   letter-spacing: -0.01em;
   color: #ffffff;
@@ -39,7 +37,6 @@
   font-weight: 400;
   font-size: 8px;
 
-  /* line-height: 12px; */
   line-height: 1.5;
   color: #ffffff;
 
@@ -105,7 +102,6 @@
   font-weight: 600;
   font-size: 40px;
 
-  /* line-height: 48px; */
   line-height: 1.2;
   letter-spacing: -0.01em;
   color: #0b0500;
@@ -117,11 +113,15 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .hero-banner-item {
+    border-radius: 0;
+  }
   .hero-banner-content {
     bottom: 32px;
     left: 40px;
   }
   .hero-banner-title {
+    line-height: 1.2;
     max-width: 390px;
     font-size: 32px;
   }
@@ -136,6 +136,7 @@
   }
 
   .hero-btns-arrow {
+    gap: 24px;
     margin-bottom: 0;
   }
   .hero-bottom {
@@ -146,6 +147,9 @@
 }
 
 @media only screen and (min-width: 1440px) {
+  .hero-banner-item {
+    border-radius: 16px;
+  }
   .hero-banner-content {
     bottom: 56px;
     left: 56px;
