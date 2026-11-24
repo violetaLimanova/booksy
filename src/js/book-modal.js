@@ -1,4 +1,6 @@
 import Accordion from 'accordion-js';
+import axios from 'axios';
+import iziToast from 'izitoast';
 
 const BASE_URL = 'https://books-backend-v2.b.goit.study';
 
@@ -15,6 +17,7 @@ const minusBtn = backdrop.querySelector('[data-qty-minus]');
 const plusBtn = backdrop.querySelector('[data-qty-plus]');
 const addToCartBtn = backdrop.querySelector('[data-add-to-cart]');
 const message = backdrop.querySelector('[data-book-message]');
+const modalContent = backdrop.querySelector('.book-modal');
 
 let quantity = 1;
 let currentTitle = '';
@@ -26,15 +29,33 @@ new Accordion('[data-book-accordion]', { duration: 300, showMultiple: false });
 
 export async function openBookModal(id) {
   try {
-    const response = await fetch(`${BASE_URL}/books/${id}`);
-    if (!response.ok) throw new Error(`Ошибка ${response.status}`);
+    showModalLoader();
 
-    const book = await response.json();
+    const response = await axios.get(`${BASE_URL}/books/${id}`);
+    const book = response.data;
+    hideModalLoader();
     fillModal(book);
     showModal();
   } catch (error) {
-    console.error('Не вдалося завантажити книгу:', error);
+    hideModalLoader();
+
+    iziToast.error({
+      title: 'Error',
+      message: 'Failed to load book details. Please try again.',
+      position: 'topRight',
+    });
   }
+}
+
+function showModalLoader() {
+  modalContent.insertAdjacentHTML(
+    'beforeend',
+    '<div class="book-modal-loader"></div>'
+  );
+}
+
+function hideModalLoader() {
+  modalContent.querySelector('.book-modal-loader')?.remove();
 }
 
 function formatTitle(text) {
