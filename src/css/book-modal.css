@@ -318,6 +318,27 @@
   }
 }
 
+.book-modal-toast {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1100;
+  padding: 16px 24px;
+  color: #fff;
+  background: var(--bm-text);
+  border-radius: 4px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.book-modal-toast.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .book-modal-backdrop,
   .book-modal-close,

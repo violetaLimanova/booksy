@@ -20,7 +20,7 @@ let quantity = 1;
 let currentTitle = '';
 let lastFocused = null;
 
-new Accordion('[data-book-accordion]', { duration: 300, showMultiple: true });
+new Accordion('[data-book-accordion]', { duration: 300, showMultiple: false });
 
 /* ---------- Открытие ---------- */
 
@@ -91,6 +91,23 @@ function setQuantity(value) {
   qtyInput.value = quantity;
 }
 
+function showToast(text) {
+  const toast = document.createElement('div');
+  toast.className = 'book-modal-toast';
+  toast.setAttribute('role', 'status');
+  toast.textContent = text;
+  document.body.append(toast);
+
+  requestAnimationFrame(() => toast.classList.add('is-visible'));
+
+  setTimeout(() => {
+    toast.classList.remove('is-visible');
+    toast.addEventListener('transitionend', () => toast.remove(), {
+      once: true,
+    });
+  }, 3000);
+}
+
 minusBtn.addEventListener('click', () => setQuantity(quantity - 1));
 plusBtn.addEventListener('click', () => setQuantity(quantity + 1));
 qtyInput.addEventListener('change', () => setQuantity(qtyInput.value));
@@ -99,10 +116,10 @@ qtyInput.addEventListener('change', () => setQuantity(qtyInput.value));
 
 addToCartBtn.addEventListener('click', () => {
   console.log(`Add to cart: "${currentTitle}", ${quantity} шт.`);
-  message.textContent = `Додано до кошика: ${quantity} шт.`;
+  showToast(`Додано до кошика: ${quantity} шт.`);
 });
 
 form.addEventListener('submit', event => {
   event.preventDefault();
-  message.textContent = 'Дякуємо за покупку';
+  showToast('Дякуємо за покупку');
 });
