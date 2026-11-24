@@ -1,9 +1,12 @@
 :root {
   --bm-modal-bg: #fceee6;
-  --bm-accent: #e05d00;
-  --bm-accent-dark: #b84a00;
+  --bm-accent: #e15d05;
+  --bm-accent-dark: #b44a04;
   --bm-text: #1a1a1a;
   --bm-line: rgba(26, 26, 26, 0.2);
+  --bm-dark: #0b0500;
+  --bm-outline-hover: #ea8d50;
+  --bm-outline-active: #dad9d8;
 }
 
 /* ---------- Фон ---------- */
@@ -63,7 +66,7 @@
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 309 / 466;
+  aspect-ratio: 309 / 467;
   object-fit: cover;
   border-radius: 8px;
 }
@@ -74,27 +77,27 @@
 
 .book-modal-title {
   margin: 0 0 8px;
-  font-size: 32px;
-  font-weight: 700;
+  font-size: 40px;
+  font-weight: 600;
   line-height: 1.2;
 }
 
 .book-modal-author {
-  margin: 0 0 12px;
+  margin: 0 0 8px;
   font-size: 14px;
 }
 
 .book-modal-price {
-  margin: 0 0 16px;
-  font-size: 22px;
+  margin: 0 0 24px;
+  font-size: 24px;
 }
 
 /* ---------- Количество ---------- */
 .book-modal-qty {
   display: flex;
-  gap: 4px;
+  gap: 8px;
   width: fit-content;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .book-modal-qty-btn {
@@ -146,8 +149,8 @@
 .book-modal-btn {
   height: 48px;
   font: inherit;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 400;
   border-radius: 4px;
   cursor: pointer;
   transition:
@@ -164,6 +167,11 @@
 
 .book-modal-btn-primary:hover,
 .book-modal-btn-primary:focus-visible {
+  background: var(--bm-dark);
+  border-color: var(--bm-dark);
+}
+
+.book-modal-btn-primary:active {
   background: var(--bm-accent-dark);
   border-color: var(--bm-accent-dark);
 }
@@ -171,13 +179,16 @@
 .book-modal-btn-outline {
   color: var(--bm-text);
   background: transparent;
-  border: 1px solid var(--bm-text);
+  border: 1px solid var(--bm-dark);
 }
 
 .book-modal-btn-outline:hover,
 .book-modal-btn-outline:focus-visible {
-  color: #fff;
-  background: var(--bm-text);
+  background: var(--bm-outline-hover);
+}
+
+.book-modal-btn-outline:active {
+  background: var(--bm-outline-active);
 }
 
 /* ---------- Сообщение ---------- */
@@ -188,7 +199,7 @@
   color: #2f7d4f;
 }
 
-/* ---------- Аккордеон (стили библиотеки не подключаем, всё здесь) ---------- */
+/* ---------- Аккордеон ---------- */
 .book-modal-accordion {
   margin-top: 24px;
 }
@@ -213,8 +224,9 @@
   width: 100%;
   padding: 18px 0;
   font: inherit;
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.5;
   color: var(--bm-text);
   text-align: left;
   background: none;
@@ -239,7 +251,6 @@
   transform: translateY(2px) rotate(-135deg);
 }
 
-/* эти два правила нужны библиотеке: она меняет height и добавляет is-active */
 .book-modal-accordion .ac-panel {
   overflow: hidden;
   transition-property: height, visibility;
@@ -254,8 +265,9 @@
 .book-modal-accordion .ac-text {
   margin: 0;
   padding-bottom: 24px;
-  font-size: 14px;
-  line-height: 1.7;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 /* ---------- Tablet ---------- */
