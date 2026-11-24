@@ -39,11 +39,16 @@ export async function openBookModal(id) {
   }
 }
 
+function formatTitle(text) {
+  const lower = text.toLowerCase();
+  return lower.charAt(0).toUpperCase() + lower.slice(1);
+}
+
 function fillModal(book) {
   // textContent вставляет текст как есть, HTML из ответа сервера не выполняется
   img.src = book.book_image;
   img.alt = book.title;
-  title.textContent = book.title;
+  title.textContent = formatTitle(book.title);
   author.textContent = book.author;
   price.textContent = `$${book.price}`;
   details.textContent = book.description || 'No description yet.';
