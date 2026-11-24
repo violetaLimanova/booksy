@@ -1,4 +1,5 @@
-
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 const backdrop = document.querySelector('[data-modal]');
 const closeBtn = document.querySelector('[data-modal-close]');
 const eventText = document.querySelector('[data-modal-event]');
@@ -49,7 +50,12 @@ backdrop.addEventListener('click', event => {
 
 
 form.addEventListener('submit', event => {
-  event.preventDefault(); 
+  event.preventDefault();
+  iziToast.success({
+    title: 'Done',
+    message: 'You have successfully registered for the event!',
+    position: 'topRight',
+  });
   form.reset();
   closeModal();
 });
