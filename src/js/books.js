@@ -27,6 +27,9 @@ async function fetchBooks() {
 
     renderBooks(currentBooks.slice(0, visibleBooks));
   } catch (error) {
+    currentBooks = [];
+    booksList.innerHTML = '';
+    booksCount.textContent = 'Showing 0 of 0';
     iziToast.error({
       title: 'Error',
       message: 'Failed to load books. Please try again.',
@@ -63,6 +66,9 @@ async function fetchBooksByCategory(category) {
 
     renderBooks(currentBooks.slice(0, visibleBooks));
   } catch (error) {
+    currentBooks = [];
+    booksList.innerHTML = '';
+    booksCount.textContent = 'Showing 0 of 0';
     iziToast.error({
       title: 'Error',
       message: 'Failed to load books. Please try again.',
