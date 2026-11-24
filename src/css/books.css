@@ -8,7 +8,7 @@
 }
 
 .books {
-  padding-top: 32px;
+  padding: 32px 0;
   background-color: #fceee6;
 }
 
@@ -120,7 +120,7 @@
 }
 
 .books-content {
-  margin-top: 12px;
+  padding-top: 12px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
