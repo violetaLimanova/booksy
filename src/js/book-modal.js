@@ -1,6 +1,5 @@
 import Accordion from 'accordion-js';
 
-// Возьми такое же начало адреса, как в books.js
 const BASE_URL = 'https://books-backend-v2.b.goit.study';
 
 const backdrop = document.querySelector('[data-book-modal]');
@@ -21,7 +20,6 @@ let quantity = 1;
 let currentTitle = '';
 let lastFocused = null;
 
-// Аккордеон создаём один раз: разметка модалки не пересоздаётся
 new Accordion('[data-book-accordion]', { duration: 300, showMultiple: true });
 
 /* ---------- Открытие ---------- */
@@ -45,7 +43,6 @@ function formatTitle(text) {
 }
 
 function fillModal(book) {
-  // textContent вставляет текст как есть, HTML из ответа сервера не выполняется
   img.src = book.book_image;
   img.alt = book.title;
   title.textContent = formatTitle(book.title);
@@ -106,7 +103,6 @@ addToCartBtn.addEventListener('click', () => {
 });
 
 form.addEventListener('submit', event => {
-  // без этого submit перезагрузит страницу
   event.preventDefault();
   message.textContent = 'Дякуємо за покупку';
 });

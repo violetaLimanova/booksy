@@ -199,7 +199,7 @@
   color: #2f7d4f;
 }
 
-/* ---------- Аккордеон (стили библиотеки не подключаем, всё здесь) ---------- */
+/* ---------- Аккордеон ---------- */
 .book-modal-accordion {
   margin-top: 24px;
 }
@@ -251,7 +251,6 @@
   transform: translateY(2px) rotate(-135deg);
 }
 
-/* эти два правила нужны библиотеке: она меняет height и добавляет is-active */
 .book-modal-accordion .ac-panel {
   overflow: hidden;
   transition-property: height, visibility;
