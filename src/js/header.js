@@ -1,7 +1,7 @@
 const openMenuBtn = document.querySelector('.header-btn-menu');
 const closeMenuBtn = document.querySelector('.menu-close-btn');
 const mobileMenu = document.querySelector('.mobile-menu');
-const menuLink = document.querySelectorAll('.mobile-item');
+const menuLink = document.querySelectorAll('.mobile-item, .header-item');
 
 function openMenu() {
   mobileMenu.classList.add('is-open');

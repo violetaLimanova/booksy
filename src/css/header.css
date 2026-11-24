@@ -6,14 +6,13 @@
   max-width: 1440px;
   justify-content: space-between;
   align-items: center;
-  margin-top: 14px;
-  margin-bottom: 14px;
 }
 .container {
 }
 .header-logo {
   display: flex;
   align-items: center;
+  padding: 14px 0;
 }
 .header-logo-icon {
 }
@@ -24,7 +23,7 @@
 .menu-close-btn {
   background-color: transparent;
   border: none;
-  padding: 0;
+  padding: 14px 0;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -119,8 +118,6 @@ body.no-scroll {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 16px;
-    margin-bottom: 16px;
   }
 
   .header-list {
@@ -132,6 +129,9 @@ body.no-scroll {
   }
 
   .header-item {
+    display: block;
+    padding: 8px 0;
+    line-height: 150%;
     text-decoration: none;
     color: #231e19;
     font-weight: 400;
