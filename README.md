@@ -1,92 +1,132 @@
-# Web Team Project Template
+# Booksy
 
-Цей шаблон для командних проєктів створено за допомогою Vite. Для знайомства та налаштування
-додаткових можливостей [звернись до документації](https://vitejs.dev/).
+Booksy is a responsive landing page for a bookstore. It showcases featured books, customer feedback, upcoming events and the store location, with a mobile-friendly navigation menu and smooth scrolling between sections.
 
-## Створення репозиторію за шаблоном
+**Live demo:** [violetalimanova.github.io/booksy](https://violetalimanova.github.io/booksy/)
 
-Використовуй цей репозиторій як шаблон для створення репозиторію свого проекту.
-Для цього натисни на кнопку `«Use this template»` і обери опцію
-`«Create a new repository»`, як показано на зображенні.
+<!-- Add a screenshot: ![Booksy preview](./assets/preview.png) -->
 
-![Creating repo from a template step 1](./assets/template-step-1.png)
+## Features
 
-На наступному етапі відкриється сторінка створення нового репозиторію. Заповни
-поле його імені, переконайся, що репозиторій публічний, після чого натисни
-кнопку `«Create repository from template»`.
+- Responsive layout for mobile, tablet and desktop
+- Header with desktop navigation and a fullscreen mobile menu
+- Smooth scrolling to page sections
+- Sections: Home, Books, Feedbacks, Events, Location
+- Modal window component
+- Automatic deployment to GitHub Pages
 
-![Creating repo from a template step 2](./assets/template-step-2.png)
+## Tech Stack
 
-Після того, як репозиторій буде створено, увімкни для нього GitHub Pages:
-перейди в `Settings` > `Pages` і в секції `Build and deployment` вибери `Source`
-→ `GitHub Actions`. Це єдине одноразове налаштування.
+- HTML5 (component-based markup via partials)
+- CSS3 (mobile-first, media queries)
+- JavaScript (ES modules)
+- [Vite](https://vitejs.dev/) for development and build
+- GitHub Actions and GitHub Pages for CI/CD
 
-![GitHub Pages: Source → GitHub Actions](./assets/repo-settings.jpg)
+## Getting Started
 
-Тепер у тебе є особистий репозиторій проекту, зі структурою файлів та папок
-репозиторію-шаблону. Далі працюй з ним, як з будь-яким іншим особистим
-репозиторієм, клонуй його собі на комп'ютер, пиши код, роби коміти та відправляй
-їх на GitHub.
+### Prerequisites
 
-## Підготовка до роботи
+- [Node.js](https://nodejs.org/) (LTS version)
+- npm (comes with Node.js)
 
-1. Переконайся, що на комп'ютері встановлено LTS-версію Node.js.
-   [Скачай та встанови](https://nodejs.org/en/) її якщо необхідно.
-2. Встанови базові залежності проекту в терміналі командою `npm install`.
-3. Запусти режим розробки, виконавши в терміналі команду `npm run dev`.
-4. Перейдіть у браузері за адресою
-   [http://localhost:5173](http://localhost:5173). Ця сторінка буде автоматично
-   перезавантажуватись після збереження змін у файли проекту.
+### Installation
 
-## Файли і папки
+```bash
+git clone https://github.com/violetaLimanova/booksy.git
+cd booksy
+npm install
+```
 
-- Свій JavaScript пиши у `src/main.js` та інших файлах, які створиш за потреби.
-- Файли розмітки компонентів сторінки повинні лежати в папці `src/partials` та
-  імпортуватись до файлу `index.html`. Наприклад, файл з розміткою хедера
-  `header.html` створюємо у папці `partials` та імпортуємо в `index.html`.
-- Файли стилів повинні лежати в папці `src/css` та підключатися до HTML-файлів
-  сторінок. Наприклад, `index.html` підключає `./css/styles.css`.
-- Зображення додавай до папки `src/img`. Збирач оптимізує їх, але тільки при
-  деплої продакшн версії проекту. Все це відбувається у хмарі, щоб не
-  навантажувати твій комп'ютер, тому що на слабких компʼютерах це може зайняти
-  багато часу.
+### Development
 
-## Деплой
+```bash
+npm run dev
+```
 
-Жива версія сторінки оновлюється автоматично: щоразу, коли ти змінюєш файли
-проекту й відправляєш зміни на GitHub у гілку `main` (прямим пушем або через
-прийнятий пул-реквест), проект сам перезбирається й публікується на GitHub Pages.
+Open [http://localhost:5173](http://localhost:5173) in your browser. The page reloads automatically when you save changes.
 
-### Статус деплою
+### Production build
 
-Статус деплою крайнього коміту відображається іконкою біля його ідентифікатора.
+```bash
+npm run build
+npm run preview
+```
 
-- **Жовтий колір** - виконується збірка та деплой проекту.
-- **Зелений колір** - деплой завершився успішно.
-- **Червоний колір** - під час збірки чи деплою сталася помилка.
+## Project Structure
 
-Більш детальну інформацію про статус можна переглянути натиснувши на іконку, і в
-вікні, що випадає, перейти за посиланням `Details`.
+```
+booksy/
+├── .github/workflows/   # GitHub Actions deploy workflow
+├── assets/              # Images used in documentation
+├── src/
+│   ├── css/             # Stylesheets (one file per component)
+│   ├── img/             # Images (optimized on production build)
+│   ├── js/              # Scripts (one file per component)
+│   ├── partials/        # HTML components (header, footer, etc.)
+│   ├── index.html       # Main page
+│   └── main.js          # JavaScript entry point
+├── package.json
+└── vite.config.js
+```
 
-![Deployment status](./assets/deploy-status.png)
+### Components
 
-### Жива сторінка
+| Component | HTML | CSS | JS |
+| --------- | ---- | --- | -- |
+| Header & mobile menu | `partials/header.html` | `css/header.css` | `js/header.js` |
+| Hero | `partials/hero.html` | `css/hero.css` | `js/hero.js` |
+| Books | `partials/books.html` | `css/books.css` | `js/books.js` |
+| Feedbacks | `partials/feedbacks.html` | `css/feedbacks.css` | `js/feedbacks.js` |
+| Events | `partials/events.html` | `css/events.css` | `js/events.js` |
+| Location | `partials/location.html` | `css/location.css` | `js/location.js` |
+| Footer | `partials/footer.html` | `css/footer.css` | `js/footer.js` |
+| Modal window | `partials/modal-window.html` | `css/modal-window.css` | `js/modal-window.js` |
 
-Через якийсь час, зазвичай кілька хвилин, живу сторінку можна буде подивитися за
-адресою, вказаною на вкладці `Settings` > `Pages` в налаштуваннях твого
-репозиторію. Для прикладу, ось посилання на живу версію цього репозиторію-шаблону —
-у тебе буде своє:
+Shared styles live in `css/container.css` (page container), `css/main.css` and `css/styles.css` (entry point that imports all styles).
 
-[https://goitacademy.github.io/web-team-project-template/](https://goitacademy.github.io/web-team-project-template/).
+## Responsive Breakpoints
 
-Якщо відкриється порожня сторінка, перевір, що GitHub Pages увімкнено
-(`Settings` > `Pages`), а останній деплой у вкладці `Actions` завершився
-успішно (зелений).
+The project uses a mobile-first approach.
 
-## Як це працює
+| Device | Breakpoint | Container max-width | Side padding |
+| ------ | ---------- | ------------------- | ------------ |
+| Mobile | default | 375px | 20px |
+| Tablet | `min-width: 768px` | 768px | 32px |
+| Desktop | `min-width: 1440px` | 1440px | 64px |
 
-![How it works](./assets/how-it-works.png)
+## Code Style
 
-Під капотом: після пуша в `main` запускається GitHub Action із
-`.github/workflows/deploy.yml`, який збирає проект і публікує його на GitHub
-Pages. Якщо щось пішло не так — деталі у вкладці `Actions`.
+The project uses [Prettier](https://prettier.io/) (`.prettierrc.json`) and EditorConfig (`.editorconfig`) to keep formatting consistent. Install the corresponding editor extensions for automatic formatting.
+
+## Workflow
+
+1. Create a feature branch from `main`, for example `feature/header`.
+2. Commit your changes with clear messages.
+3. Push the branch and open a pull request.
+4. After the pull request is merged into `main`, the site is rebuilt and deployed automatically.
+
+## Deployment
+
+The site is deployed to GitHub Pages with GitHub Actions (`.github/workflows/deploy.yml`). Every push to `main` triggers a build and publishes the result.
+
+To enable it for a new repository, go to **Settings → Pages** and set **Source** to **GitHub Actions**.
+
+Deployment status is shown next to the latest commit:
+
+- Yellow: build and deployment in progress
+- Green: deployed successfully
+- Red: build or deployment failed (open **Actions** for details)
+
+## Team
+
+<!-- Add team members, for example: -->
+<!-- - [Name](https://github.com/username) — role -->
+
+## License
+
+<!-- Specify the license, for example MIT. -->
+
+---
+
+*This project was generated from [goitacademy/web-team-project-template](https://github.com/goitacademy/web-team-project-template).*
