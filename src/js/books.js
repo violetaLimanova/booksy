@@ -1,4 +1,7 @@
 import { openBookModal } from './book-modal.js';
+import axios from 'axios';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
 const booksList = document.querySelector('.books-list');
 const categoriesList = document.querySelector('.books-categories');
@@ -11,26 +14,35 @@ let visibleBooks = 0;
 
 async function fetchBooks() {
   try {
-    const res = await fetch(
+    showLoader();
+    showMoreBtn.hidden = true;
+
+    const res = await axios.get(
       'https://books-backend-v2.b.goit.study/books/top-books'
     );
-    const data = await res.json();
+    const data = res.data;
 
     currentBooks = getAllBooks(data);
     visibleBooks = getBooksPerPage();
 
     renderBooks(currentBooks.slice(0, visibleBooks));
   } catch (error) {
-    console.error(error);
+    iziToast.error({
+      title: 'Error',
+      message: 'Failed to load books. Please try again.',
+      position: 'topRight',
+    });
+    hideLoader();
+    showMoreBtn.hidden = visibleBooks >= currentBooks.length;
   }
 }
 
 async function fetchCategories() {
   try {
-    const res = await fetch(
+    const res = await axios.get(
       'https://books-backend-v2.b.goit.study/books/category-list'
     );
-    const data = await res.json();
+    const data = res.data;
     renderCategories(data);
   } catch (error) {
     console.error(error);
@@ -39,18 +51,35 @@ async function fetchCategories() {
 
 async function fetchBooksByCategory(category) {
   try {
-    const res = await fetch(
+    showLoader();
+    showMoreBtn.hidden = true;
+    const res = await axios.get(
       `https://books-backend-v2.b.goit.study/books/category?category=${encodeURIComponent(category)}`
     );
-    const data = await res.json();
+    const data = res.data;
 
     currentBooks = data;
     visibleBooks = getBooksPerPage();
 
     renderBooks(currentBooks.slice(0, visibleBooks));
   } catch (error) {
-    console.error(error);
+    iziToast.error({
+      title: 'Error',
+      message: 'Failed to load books. Please try again.',
+      position: 'topRight',
+    });
+
+    hideLoader();
+    showMoreBtn.hidden = visibleBooks >= currentBooks.length;
   }
+}
+
+function showLoader() {
+  booksList.insertAdjacentHTML('beforeend', '<li class="books-loader"></li>');
+}
+
+function hideLoader() {
+  booksList.querySelector('.books-loader')?.remove();
 }
 
 function renderCategories(categories) {
@@ -118,8 +147,6 @@ function onBookBtnClick(event) {
 
   if (!button) return;
 
-  // TODO: после готовности модального окна добавить
-  // и заменить console.log на openBookModal(button.dataset.id)
   openBookModal(button.dataset.id);
 }
 
