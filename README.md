@@ -131,8 +131,23 @@ Deployment status is shown next to the latest commit:
 
 ## Team
 
-<!-- Add team members, for example: -->
-<!-- - [Name](https://github.com/username) — role -->
+Limanova Violeta (https://github.com/violetaLimanova) - Header section;
+
+Oleh Patyka (https://github.com/olehpatyka) - Hero section;
+
+Tamara Nalbandyan (https://github.com/tomanalbandyan-stack) - Books section;
+
+Oleksandr Melovatskyi (https://github.com/alexmelovat-pixel) - Book modal;
+
+Illia Hladkyi (https://github.com/Herugriim) - Feedbacks section, Article
+section;
+
+Andrii Borkovskykh (https://github.com/Andrey-9973) - Event section;
+
+Vladyslav Mukhar (https://github.com/vladikmukhar-star) - Contact section,
+Contact modal;
+
+Ruslan Holovko (https://github.com/Ruslon69) - Footer section;
 
 ## License
 
