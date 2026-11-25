@@ -37,6 +37,7 @@
   flex-direction: column;
   gap: 24px;
   width: 100%;
+  max-width: 375px;
   margin: auto; /* центр по вертикали, а если окно высокое, фон прокручивается */
   padding: 64px 16px;
   color: var(--bm-text);
@@ -65,6 +66,8 @@
 .book-modal-img {
   display: block;
   width: 100%;
+  max-width: 309px;
+  margin: 0 auto;
   height: auto;
   aspect-ratio: 309 / 467;
   object-fit: cover;
@@ -291,6 +294,7 @@
   .book-modal-img {
     flex: none;
     width: 309px;
+    margin: 0;
   }
 
   .book-modal-content {
