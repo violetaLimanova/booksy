@@ -14,6 +14,7 @@ let visibleBooks = 0;
 
 async function fetchBooks() {
   try {
+    booksList.innerHTML = '';
     showLoader();
     showMoreBtn.hidden = true;
 
@@ -54,6 +55,7 @@ async function fetchCategories() {
 
 async function fetchBooksByCategory(category) {
   try {
+    booksList.innerHTML = '';
     showLoader();
     showMoreBtn.hidden = true;
     const res = await axios.get(
