@@ -48,14 +48,14 @@ export async function openBookModal(id) {
 }
 
 function showModalLoader() {
-  modalContent.insertAdjacentHTML(
+  document.body.insertAdjacentHTML(
     'beforeend',
     '<div class="book-modal-loader"></div>'
   );
 }
 
 function hideModalLoader() {
-  modalContent.querySelector('.book-modal-loader')?.remove();
+  document.querySelector('.book-modal-loader')?.remove();
 }
 
 function formatTitle(text) {
